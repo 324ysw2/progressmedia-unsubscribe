@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>프로그레스미디어 수신거부</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f5f6fb;
+      color: #111827;
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    main {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 70px 0 90px;
+      text-align: center;
+    }
+    h1, .english {
+      margin: 0;
+      font-size: clamp(24px, 3.4vw, 38px);
+      line-height: 1.45;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+    }
+    .english { margin-top: 6px; letter-spacing: -0.025em; }
+    strong { font-weight: 800; }
+    .help-ko {
+      margin: 18px 0 0;
+      font-size: clamp(21px, 3vw, 34px);
+      line-height: 1.45;
+      letter-spacing: -0.04em;
+    }
+    .help-en {
+      margin: 10px auto 0;
+      max-width: 820px;
+      font-size: clamp(19px, 2.7vw, 31px);
+      line-height: 1.55;
+      letter-spacing: -0.035em;
+    }
+    .recipient {
+      margin: 30px auto 0;
+      padding: 14px 18px;
+      max-width: 800px;
+      border-radius: 10px;
+      background: #fff;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.65;
+      word-break: break-all;
+    }
+    form { margin: 42px auto 0; max-width: 800px; }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 700;
+      color: #374151;
+    }
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 200px;
+      resize: vertical;
+      border: 2px solid #c5c7cc;
+      border-radius: 10px;
+      background: #fff;
+      padding: 18px;
+      font: inherit;
+      font-size: 17px;
+      line-height: 1.6;
+      outline: none;
+    }
+    textarea:focus { border-color: #6b7280; box-shadow: 0 0 0 4px rgba(107,114,128,.12); }
+    button {
+      margin-top: 40px;
+      min-width: 315px;
+      border: 0;
+      border-radius: 9px;
+      background: #818287;
+      color: #fff;
+      padding: 22px 34px;
+      font: inherit;
+      font-size: 25px;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+    button:hover { background: #696a70; }
+    button:focus-visible { outline: 4px solid rgba(0,85,255,.3); outline-offset: 4px; }
+    .notice { margin-top: 24px; color: #6b7280; font-size: 13px; line-height: 1.7; }
+    .honey { display: none !important; }
+    @media (max-width: 600px) {
+      main { padding-top: 42px; }
+      form { margin-top: 32px; }
+      textarea { min-height: 165px; }
+      button { width: 100%; min-width: 0; font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1><strong>프로그레스미디어 유신욱 전체 주소록</strong>을 수신거부 하시겠습니까?</h1>
+    <p class="english">Unsubscribe from <strong>Progressmedia Yoo Shin Wooc mailing list</strong>?</p>
+    <p class="help-ko">수신거부 이유도 알려주시면 큰 도움이 됩니다. 🙂</p>
+    <p class="help-en">It would be a great help if you could also let us know<br>the reason for unsubscribing. 🙂</p>
+
+    <div class="recipient" id="recipientSummary" hidden></div>
+
+    <form action="https://formsubmit.co/324ysw2@naver.com" method="POST">
+      <label for="reason">수신거부 이유 (선택)</label>
+      <textarea id="reason" name="수신거부 이유" placeholder="이유를 입력하지 않아도 수신거부할 수 있습니다."></textarea>
+
+      <input type="hidden" id="brand" name="브랜드명">
+      <input type="hidden" id="recipientEmail" name="수신 이메일">
+      <input type="hidden" id="product" name="메일 상품">
+      <input type="hidden" id="requestedAt" name="요청 시각">
+      <input type="hidden" name="_subject" id="subject" value="[수신거부 요청] 프로그레스미디어 유신욱 전체 주소록">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://324ysw2.github.io/progressmedia-unsubscribe/thanks.html">
+      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
+
+      <button type="submit">수신거부하기<br>Unsubscribe</button>
+      <p class="notice">제출하면 해당 이메일 주소를 프로그레스미디어 유신욱 자동화메일 발송 대상에서 제외하도록 요청합니다.</p>
+    </form>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const brand = (params.get("brand") || "").trim();
+    const email = (params.get("email") || "").trim();
+    const product = (params.get("product") || "자동화메일").trim();
+    document.getElementById("brand").value = brand || "확인되지 않음";
+    document.getElementById("recipientEmail").value = email || "확인되지 않음";
+    document.getElementById("product").value = product;
+    document.getElementById("requestedAt").value = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+    document.getElementById("subject").value = `[수신거부 요청] ${brand || "브랜드 미확인"} / ${product}`;
+    if (brand || email) {
+      const summary = document.getElementById("recipientSummary");
+      summary.textContent = `브랜드: ${brand || "확인되지 않음"} · 수신 이메일: ${email || "확인되지 않음"}`;
+      summary.hidden = false;
+    }
+  </script>
+</body>
+</html>
