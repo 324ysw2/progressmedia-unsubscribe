@@ -43,17 +43,6 @@
       line-height: 1.55;
       letter-spacing: -0.035em;
     }
-    .recipient {
-      margin: 30px auto 0;
-      padding: 14px 18px;
-      max-width: 800px;
-      border-radius: 10px;
-      background: #fff;
-      color: #4b5563;
-      font-size: 14px;
-      line-height: 1.65;
-      word-break: break-all;
-    }
     form { margin: 42px auto 0; max-width: 800px; }
     label {
       display: block;
@@ -110,8 +99,6 @@
     <p class="help-ko">수신거부 이유도 알려주시면 큰 도움이 됩니다. 🙂</p>
     <p class="help-en">It would be a great help if you could also let us know<br>the reason for unsubscribing. 🙂</p>
 
-    <div class="recipient" id="recipientSummary" hidden></div>
-
     <form action="https://formsubmit.co/324ysw2@naver.com" method="POST">
       <label for="reason">수신거부 이유 (선택)</label>
       <textarea id="reason" name="수신거부 이유" placeholder="이유를 입력하지 않아도 수신거부할 수 있습니다."></textarea>
@@ -140,11 +127,6 @@
     document.getElementById("product").value = product;
     document.getElementById("requestedAt").value = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
     document.getElementById("subject").value = `[수신거부 요청] ${brand || "브랜드 미확인"} / ${product}`;
-    if (brand || email) {
-      const summary = document.getElementById("recipientSummary");
-      summary.textContent = `브랜드: ${brand || "확인되지 않음"} · 수신 이메일: ${email || "확인되지 않음"}`;
-      summary.hidden = false;
-    }
   </script>
 </body>
 </html>
